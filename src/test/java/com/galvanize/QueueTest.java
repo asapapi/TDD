@@ -84,4 +84,23 @@ class QueueTest {
         assertThrows(RuntimeException.class, ()->queue.remove());
     }
 
+    @Test
+    public void empty_afterThreeAddAndThreeRemove_shouldReturnsTrue(){
+        Queue queue = new Queue();
+        queue.add(5);
+        queue.add(10);
+        queue.add(15);
+        queue.remove();
+        queue.remove();
+        queue.remove();
+        assertTrue(queue.isEmpty());
+    }
+
+    @Test
+    public void empty_afterOneAdd_shouldReturnsFalse(){
+        Queue queue = new Queue();
+        queue.add(5);
+        assertFalse(queue.isEmpty());
+    }
+
 }
